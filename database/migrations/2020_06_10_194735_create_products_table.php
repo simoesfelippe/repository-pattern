@@ -17,15 +17,12 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->string('title');
-            $table->string('flag');
-            $table->string('image');
             $table->double('price', 10, 2);
             $table->text('description');
             $table->timestamps();
         });
 
         //Relationship Product x Category
-
         Schema::create('category_product', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
