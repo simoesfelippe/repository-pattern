@@ -16,27 +16,19 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
+            $table->unsignedBigInteger('category_id');
             $table->string('title');
+            $table->string('image');
             $table->double('price', 10, 2);
             $table->text('description');
             $table->timestamps();
-        });
-
-        //Relationship Product x Category
-        Schema::create('category_product', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('product_id');
 
             $table->foreign('category_id')
                         ->references('id')
                         ->on('categories')
                         ->onDelete('cascade');
-            $table->foreign('product_id')
-                        ->references('id')
-                        ->on('products')
-                        ->onDelete('cascade');
         });
+
     }
 
     /**

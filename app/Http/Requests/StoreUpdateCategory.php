@@ -27,5 +27,11 @@ class StoreUpdateCategory extends FormRequest
             'name' => 'required|min:2|max:100',
             'description' => 'required|min:2|max:255'
         ];
+
+        if ($this->method() == 'PUT') {
+            $rules['description'] = ['nullable'];
+        }
+
+        return $rules;
     }
 }

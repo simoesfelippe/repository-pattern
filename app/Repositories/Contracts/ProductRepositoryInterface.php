@@ -7,7 +7,7 @@ interface ProductRepositoryInterface
     public function getAllProducts();
     public function getProductById(int $id);
     public function createProduct(array $product);
-    public function updateProduct(int $int, array $product);
-    public function destroyProduct(int $int);
+    public function updateProduct(object $prod, array $product);
+    public function destroyProduct(object $product);
 
 }

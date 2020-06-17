@@ -16,7 +16,7 @@ class CategoryService
 
     /**
      *
-     */
+    */
     public function getAllCategories()
     {
         return $this->categoryRepository->getAllCategories();
@@ -24,7 +24,7 @@ class CategoryService
 
     /**
      *
-     */
+    */
     public function getCategorieById(int $id)
     {
         return $this->categoryRepository->getCategorieById($id);
@@ -32,7 +32,7 @@ class CategoryService
 
     /**
      *
-     */
+    */
     public function makeCategory(array $categorie)
     {
         $categorie['url'] = Str::kebab($categorie['name']);
@@ -43,7 +43,7 @@ class CategoryService
 
     /**
      *
-     */
+    */
     public function updateCategory(int $id, array $categorie)
     {
         $category = $this->categoryRepository->getCategorieById($id);
@@ -61,7 +61,7 @@ class CategoryService
 
     /**
      *
-     */
+    */
     public function destroyCategorie(int $id)
     {
         $category = $this->categoryRepository->getCategorieById($id);
