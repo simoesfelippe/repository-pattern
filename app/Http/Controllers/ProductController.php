@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
 use App\Http\Requests\StoreUpdateProduct;
+use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
@@ -24,7 +25,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->productService->getAllProducts();
-        return $products;
+        return ProductResource::collection($products);
     }
 
     /**
@@ -42,7 +43,7 @@ class ProductController extends Controller
         }
 
         $product = $this->productService->makeProduct($request->all());
-        return $product;
+        return new ProductResource($product);
     }
 
     /**
@@ -54,7 +55,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = $this->productService->getProductById($id);
-        return $product;
+        return new ProductResource($product);
     }
 
 
